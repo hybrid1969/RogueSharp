@@ -513,12 +513,12 @@ namespace RogueSharp
          foreach ( Cell cell in GetAllCells() )
          {
             MapState.CellProperties cellProperties = state.Cells[cell.Y * Width + cell.X];
-            if ( cellProperties.HasFlag( MapState.CellProperties.Visible ) )
+            if ( cellProperties.IsFlagSet( MapState.CellProperties.Visible ) )
             {
                inFov.Add( IndexFor( cell.X, cell.Y ) );
             }
-            _isTransparent[cell.X, cell.Y] = cellProperties.HasFlag( MapState.CellProperties.Transparent );
-            _isWalkable[cell.X, cell.Y] = cellProperties.HasFlag( MapState.CellProperties.Walkable );
+            _isTransparent[cell.X, cell.Y] = cellProperties.IsFlagSet( MapState.CellProperties.Transparent );
+            _isWalkable[cell.X, cell.Y] = cellProperties.IsFlagSet( MapState.CellProperties.Walkable );
          }
 
          _fieldOfView = new FieldOfView( this, inFov );
@@ -586,6 +586,26 @@ namespace RogueSharp
       public override string ToString()
       {
          return ToString( false );
+      }
+   }
+
+   // Useful for targeting .NET 3.5 when we don't have Enum.HasFlag
+   public static class EnumExtensions
+   {
+      private static void CheckIsEnum<T>( bool withFlags )
+      {
+         if ( !typeof( T ).IsEnum )
+            throw new ArgumentException( string.Format( "Type '{0}' is not an enum", typeof( T ).FullName ) );
+         if ( withFlags && !Attribute.IsDefined( typeof( T ), typeof( FlagsAttribute ) ) )
+            throw new ArgumentException( string.Format( "Type '{0}' doesn't have the 'Flags' attribute", typeof( T ).FullName ) );
+      }
+
+      public static bool IsFlagSet<T>( this T value, T flag ) where T : struct
+      {
+         CheckIsEnum<T>( true );
+         long lValue = Convert.ToInt64( value );
+         long lFlag = Convert.ToInt64( flag );
+         return ( lValue & lFlag ) != 0;
       }
    }
 }

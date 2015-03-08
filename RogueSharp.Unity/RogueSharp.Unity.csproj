@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{33E3E1D0-0863-4994-BCA5-094C486D0B60}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RogueSharp.Unity</RootNamespace>
+    <AssemblyName>RogueSharp.Unity</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\RogueSharp\Algorithms\Graph.cs">
+      <Link>Algorithms\Graph.cs</Link>
+    </Compile>
+    <Compile Include="..\RogueSharp\Algorithms\UnionFind.cs">
+      <Link>Algorithms\UnionFind.cs</Link>
+    </Compile>
+    <Compile Include="..\RogueSharp\Cell.cs">
+      <Link>Cell.cs</Link>
+    </Compile>
+    <Compile Include="..\RogueSharp\DiceNotation\Dice.cs">
+      <Link>DiceNotation\Dice.cs</Link>
+    </Compile>
+    <Compile Include="..\RogueSharp\DiceNotation\DiceExpression.cs">
+      <Link>DiceNotation\DiceExpression.cs</Link>
+    </Compile>
+    <Compile Include="..\RogueSharp\DiceNotation\DiceParser.cs">
+      <Link>DiceNotation\DiceParser.cs</Link>
+    </Compile>
+    <Compile Include="..\RogueSharp\DiceNotation\DiceResult.cs">
+      <Link>DiceNotation\DiceResult.cs</Link>
+    </Compile>
+    <Compile Include="..\RogueSharp\DiceNotation\Exceptions\ImpossibleDieException.cs">
+      <Link>DiceNotation\Exceptions\ImpossibleDieException.cs</Link>
+    </Compile>
+    <Compile Include="..\RogueSharp\DiceNotation\Exceptions\InvalidChooseException.cs">
+      <Link>DiceNotation\Exceptions\InvalidChooseException.cs</Link>
+    </Compile>
+    <Compile Include="..\RogueSharp\DiceNotation\Exceptions\InvalidMultiplicityException.cs">
+      <Link>DiceNotation\Exceptions\InvalidMultiplicityException.cs</Link>
+    </Compile>
+    <Compile Include="..\RogueSharp\DiceNotation\IDiceParser.cs">
+      <Link>DiceNotation\IDiceParser.cs</Link>
+    </Compile>
+    <Compile Include="..\RogueSharp\DiceNotation\TermResult.cs">
+      <Link>DiceNotation\TermResult.cs</Link>
+    </Compile>
+    <Compile Include="..\RogueSharp\DiceNotation\Terms\ConstantTerm.cs">
+      <Link>DiceNotation\Terms\ConstantTerm.cs</Link>
+    </Compile>
+    <Compile Include="..\RogueSharp\DiceNotation\Terms\DiceTerm.cs">
+      <Link>DiceNotation\Terms\DiceTerm.cs</Link>
+    </Compile>
+    <Compile Include="..\RogueSharp\DiceNotation\Terms\IDiceExpressionTerm.cs">
+      <Link>DiceNotation\Terms\IDiceExpressionTerm.cs</Link>
+    </Compile>
+    <Compile Include="..\RogueSharp\FieldOfView.cs">
+      <Link>FieldOfView.cs</Link>
+    </Compile>
+    <Compile Include="..\RogueSharp\GoalMap.cs">
+      <Link>GoalMap.cs</Link>
+    </Compile>
+    <Compile Include="..\RogueSharp\IGoalMap.cs">
+      <Link>IGoalMap.cs</Link>
+    </Compile>
+    <Compile Include="..\RogueSharp\IMap.cs">
+      <Link>IMap.cs</Link>
+    </Compile>
+    <Compile Include="..\RogueSharp\IMapCreationStrategy.cs">
+      <Link>IMapCreationStrategy.cs</Link>
+    </Compile>
+    <Compile Include="..\RogueSharp\Map.cs">
+      <Link>Map.cs</Link>
+    </Compile>
+    <Compile Include="..\RogueSharp\PathFinder.cs">
+      <Link>PathFinder.cs</Link>
+    </Compile>
+    <Compile Include="..\RogueSharp\Point.cs">
+      <Link>Point.cs</Link>
+    </Compile>
+    <Compile Include="..\RogueSharp\Random\DotNetRandom.cs">
+      <Link>Random\DotNetRandom.cs</Link>
+    </Compile>
+    <Compile Include="..\RogueSharp\Random\GaussianRandom.cs">
+      <Link>Random\GaussianRandom.cs</Link>
+    </Compile>
+    <Compile Include="..\RogueSharp\Random\IRandom.cs">
+      <Link>Random\IRandom.cs</Link>
+    </Compile>
+    <Compile Include="..\RogueSharp\Random\KnownSeriesRandom.cs">
+      <Link>Random\KnownSeriesRandom.cs</Link>
+    </Compile>
+    <Compile Include="..\RogueSharp\Random\MaxRandom.cs">
+      <Link>Random\MaxRandom.cs</Link>
+    </Compile>
+    <Compile Include="..\RogueSharp\Random\MinRandom.cs">
+      <Link>Random\MinRandom.cs</Link>
+    </Compile>
+    <Compile Include="..\RogueSharp\Random\Singleton.cs">
+      <Link>Random\Singleton.cs</Link>
+    </Compile>
+    <Compile Include="..\RogueSharp\Rectangle.cs">
+      <Link>Rectangle.cs</Link>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
